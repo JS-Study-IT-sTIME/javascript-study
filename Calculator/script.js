@@ -8,14 +8,16 @@
 
 let currentOp = '',
     currentVal = 0;
+let newDigit ='';
+const display = document.querySelector('.display');
 
 function digitBtnHandler() {
   const digits = document.querySelectorAll('.digit');
   digits.forEach(digit => {
     digit.addEventListener('click', (evt) => {
-      const display = document.querySelector('.display');
       let targetDigit = evt.target.innerText;
       display.value += targetDigit;
+      newDigit += targetDigit;
     })
   })
 }
@@ -36,20 +38,22 @@ function operatorBtnHandler() {
   const operatorBtns = document.querySelectorAll('.operator');
   operatorBtns.forEach(operatorBtn => {
     operatorBtn.addEventListener('click', (evt) => {
-      const display = document.querySelector('.display');
-      let displayVal = Number(display.value);
+      let displayVal = Number(newDigit);
       if (evt.target.innerText === '=') {
+        display.value = '';
         display.value = calculate(currentOp, currentVal, displayVal);
         currentOp = '';
+        newDigit = '';
         return;
       }
       if (currentOp === '') {
-        currentVal = Number(display.value);
+        currentVal = Number(displayVal);
       } else {
         currentVal = calculate(currentOp, currentVal, displayVal);
       }
-      display.value = '';
       currentOp = evt.target.innerText;
+      display.value += currentOp;
+      newDigit = '';
     })
   })
 }
@@ -60,6 +64,7 @@ function clearBtnHandler() {
     const display = document.querySelector('.display');
     currentOp = '';
     currentVal = 0;
+    newDigit = '';
     display.value = '';
   })
 }
@@ -68,10 +73,9 @@ function decimalBtnHandler() {
   const decimalBtn = document.querySelector('.decimal');
   decimalBtn.addEventListener('click', () => {
     const display = document.querySelector('.display');
-    let displayVal = display.value;
-    if (!displayVal.includes('.')) {
-      let addDecimal = display.value + '.';
-      display.value = addDecimal;
+    if (!newDigit.includes('.')) {
+      display.value += '.';
+      newDigit += '.';
     }
   })
 }
