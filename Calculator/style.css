@@ -19,7 +19,7 @@ h1 {
   width: 300px;
   padding: 20px;
   position: fixed;
-  top: 50%;
+  top: 30%;
   left: 50%;
   transform: translate(-50%, -50%);
   box-shadow: 5px 5px 10px #6ce293;
