@@ -4,6 +4,8 @@ const scissors_btn = document.getElementById('scissor');
 const paper_btn = document.getElementById('paper');
 const result_text = document.getElementById('result_text');
 const comp_img = document.getElementById('img');
+const computer_score = document.getElementById('computer_score');
+const my_score = document.getElementById('my_score');
 
 function computerChoice() {
     let choice = ['rock', 'scissor', 'paper']
@@ -22,6 +24,8 @@ function computerChoice() {
 
 let userWin = 0;
 let compWin = 0;
+let comp_score = 0; // computer_score
+let user_score = 0; // my_score
 function game(userChoice) {
     let compChoice = computerChoice();
 
@@ -34,12 +38,16 @@ function game(userChoice) {
     (userChoice === 'scissor' && compChoice === 'paper') || 
     (userChoice === 'paper' && compChoice === 'rock')) {
         userWin = 1;
+        user_score += 1;
+        my_score.textContent = user_score;
         resultText();
     }
     else if ((userChoice === 'scissor' && compChoice === 'rock') || 
     (userChoice === 'paper' && compChoice === 'scissor') || 
     (userChoice === 'rock' && compChoice === 'paper')) {
         compWin = 1;
+        comp_score += 1;
+        computer_score.textContent = comp_score;
         resultText();
     }
 }
@@ -62,7 +70,7 @@ function resultText() {
         result_text.textContent = "비겼습니다.";
     }
 
-    setTimeout(() => {result_text.textContent=""}, 2000)
+    setTimeout(() => {result_text.textContent=""}, 1000)
 }
 
 rock_btn.onclick = (e) => {
