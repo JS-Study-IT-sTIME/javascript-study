@@ -1,7 +1,7 @@
 body {
-	background-color: #232323;
+	background-color: #cbf7c7;
 	font-family: "Raleway", Sans-serif;
-	font-size: 62.5%; /*1 em = 10px */
+	font-size: 62.5%;
 	margin: 0;
 }
 
@@ -13,19 +13,15 @@ body {
 }
 .square {
 	width: 30%;
-	background-color: purple;
+	background-color: rgb(89, 255, 125);
 	padding-bottom: 30%;
 	float: left;
 	margin: 1.66%;
-	transition: background .5s;
-	-webkit-transition: background .5s;
-	-moz-transition: background .5s;
-	o-transition: background .5s;
 } 
 
 h1 {
-	color: white;
-	background-color: #2C8E99;
+	color: rgb(40, 134, 48);
+	background-color: #cbf7c7;
 	font-size: 3.5em;
 	text-align: center;
 	text-transform: uppercase;
@@ -44,35 +40,42 @@ h1 {
 }
 
 #stripe {
-	background: white;
+	background: rgb(89, 255, 125);
 	height: 30px;
 	text-align: center;
 	color: black;
 }
 
+#without {
+	text-transform: uppercase;
+	font-size: 1.5em;
+	display: inline-block;
+	width: 20%;
+}
+
 button {
 	outline: none;
-	color: #2C8E99;
+	color: #157512;
 	font-family: "Raleway", Sans-serif;
 	text-transform: uppercase;
 	font-size: 1.5em;
-	background-color: white;
+	background-color: #ffffff;
 	height: 100%;
 	letter-spacing: 1px;
 	transition: all 0.3s;
+	border-radius: 12px;
 	-webkit-transition: all 0.3s;
 	-moz-transition: all 0.3s;
-	o-transition: all 0.3s;
 }
 
 button:hover {
-	background-color: #2C8E99;
-	color: white;
+	background-color: #fffd81;
+	color: #157512;
 }
 
 .selected {
-	background-color: #2C8E99;
-	color: white;
+	background-color: #fffd81;
+	color: #157512;
 }
 
 .square {
